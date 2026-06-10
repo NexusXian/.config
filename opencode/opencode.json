@@ -17,7 +17,7 @@
       "name": "Anthropic",
       "options": {
         "baseURL": "https://www.packyapi.com/v1",
-        "apiKey": "${PACKYCODE_API_KEY}",
+        "apiKey": "{env:PACKYCODE_API_KEY}",
         "setCacheKey": true
       },
       "models": {
