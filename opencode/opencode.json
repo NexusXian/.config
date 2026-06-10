@@ -1,0 +1,203 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": [
+    "zai",
+    "z-ai",
+    "z.ai",
+    "zhipu",
+    "zhipu-ai",
+    "zhipuai",
+    "z-ai-coding-plan",
+    "z.ai-coding-plan",
+    "zai-coding-plan"
+  ],
+  "provider": {
+    "packycode": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Anthropic",
+      "options": {
+        "baseURL": "https://www.packyapi.com/v1",
+        "apiKey": "sk-zygmJvVJbNs1zdybaLo3x87z5OV1iNR98CilqVX85SrMW0wI",
+        "setCacheKey": true
+      },
+      "models": {
+        "claude-opus-4-6": {
+          "name": "Claude Opus 4.6",
+          "options": {
+            "thinking": {
+              "type": "adaptive",
+              "display": "summarized"
+            }
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 8000
+              }
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 16000
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 64000
+              }
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 128000
+              }
+            }
+          }
+        },
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4.8",
+          "options": {
+            "thinking": {
+              "type": "adaptive",
+              "display": "summarized"
+            }
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 8000
+              }
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 16000
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 64000
+              }
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 128000
+              }
+            }
+          }
+        },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6",
+          "options": {
+            "thinking": {
+              "type": "adaptive",
+              "display": "summarized"
+            }
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 8000
+              }
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 16000
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 64000
+              }
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 128000
+              }
+            }
+          }
+        },
+        "claude-opus-4-7": {
+          "name": "Claude Opus 4.7",
+          "options": {
+            "thinking": {
+              "type": "adaptive",
+              "display": "summarized"
+            }
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 8000
+              }
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 16000
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 64000
+              }
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized",
+                "budgetTokens": 128000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

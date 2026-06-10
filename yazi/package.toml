@@ -1,0 +1,29 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "557684b"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "557684b"
+hash = "bf75a487d1d3b0f9e93a118e30714e09"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "c2c16c8"
+hash = "88e56a64b7ce7c4314427452343fef17"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "c2c16c8"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "c2c16c8"
+hash = "7b625412411be411153886894d9acaf"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "ca61658"
+hash = "8589ae0231756a9daf9c072f31b1fe0"
