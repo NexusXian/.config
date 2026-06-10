@@ -23,6 +23,11 @@ use = "yazi-rs/plugins:full-border"
 rev = "c2c16c8"
 hash = "7b625412411be411153886894d9acaf"
 
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "e60e122"
+hash = "fbaf0adc8efc59555b748d36aab62d40"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "ca61658"

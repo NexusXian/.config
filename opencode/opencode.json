@@ -12,143 +12,103 @@
     "zai-coding-plan"
   ],
   "provider": {
-    "packycode": {
-      "npm": "@ai-sdk/anthropic",
-      "name": "Anthropic",
-      "options": {
-        "baseURL": "https://www.packyapi.com/v1",
-        "apiKey": "{env:PACKYCODE_API_KEY}",
-        "setCacheKey": true
+    "claude": {
+      "models": {
+        "claude-fable-5": {
+          "name": "Claude Fable 5",
+          "options": {
+            "thinking": {
+              "display": "summarized",
+              "type": "adaptive"
+            }
+          },
+          "variants": {
+            "high": {
+              "thinking": {
+                "budgetTokens": 16000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "max": {
+              "thinking": {
+                "budgetTokens": 128000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "budgetTokens": 8000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "budgetTokens": 64000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            }
+          }
+        }
       },
+      "name": "Anthropic",
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "apiKey": "{env:CC_API_KEY}",
+        "baseURL": "https://www.packyapi.com/v1",
+        "setCacheKey": true
+      }
+    },
+    "packycode": {
       "models": {
         "claude-opus-4-6": {
           "name": "Claude Opus 4.6",
           "options": {
             "thinking": {
-              "type": "adaptive",
-              "display": "summarized"
+              "display": "summarized",
+              "type": "adaptive"
             }
           },
           "variants": {
+            "high": {
+              "thinking": {
+                "budgetTokens": 16000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
             "low": {
               "thinking": {
                 "type": "disabled"
               }
             },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 8000
-              }
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 16000
-              }
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 64000
-              }
-            },
             "max": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 128000,
                 "display": "summarized",
-                "budgetTokens": 128000
-              }
-            }
-          }
-        },
-        "claude-opus-4-8": {
-          "name": "Claude Opus 4.8",
-          "options": {
-            "thinking": {
-              "type": "adaptive",
-              "display": "summarized"
-            }
-          },
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "disabled"
+                "type": "adaptive"
               }
             },
             "medium": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 8000,
                 "display": "summarized",
-                "budgetTokens": 8000
-              }
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 16000
+                "type": "adaptive"
               }
             },
             "xhigh": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 64000,
                 "display": "summarized",
-                "budgetTokens": 64000
-              }
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 128000
-              }
-            }
-          }
-        },
-        "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6",
-          "options": {
-            "thinking": {
-              "type": "adaptive",
-              "display": "summarized"
-            }
-          },
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "disabled"
-              }
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 8000
-              }
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 16000
-              }
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 64000
-              }
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized",
-                "budgetTokens": 128000
+                "type": "adaptive"
               }
             }
           }
@@ -157,46 +117,141 @@
           "name": "Claude Opus 4.7",
           "options": {
             "thinking": {
-              "type": "adaptive",
-              "display": "summarized"
+              "display": "summarized",
+              "type": "adaptive"
             }
           },
           "variants": {
+            "high": {
+              "thinking": {
+                "budgetTokens": 16000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
             "low": {
               "thinking": {
                 "type": "disabled"
               }
             },
-            "medium": {
+            "max": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 128000,
                 "display": "summarized",
-                "budgetTokens": 8000
+                "type": "adaptive"
               }
             },
-            "high": {
+            "medium": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 8000,
                 "display": "summarized",
-                "budgetTokens": 16000
+                "type": "adaptive"
               }
             },
             "xhigh": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 64000,
                 "display": "summarized",
-                "budgetTokens": 64000
+                "type": "adaptive"
+              }
+            }
+          }
+        },
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4.8",
+          "options": {
+            "thinking": {
+              "display": "summarized",
+              "type": "adaptive"
+            }
+          },
+          "variants": {
+            "high": {
+              "thinking": {
+                "budgetTokens": 16000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "low": {
+              "thinking": {
+                "type": "disabled"
               }
             },
             "max": {
               "thinking": {
-                "type": "adaptive",
+                "budgetTokens": 128000,
                 "display": "summarized",
-                "budgetTokens": 128000
+                "type": "adaptive"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "budgetTokens": 8000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "budgetTokens": 64000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            }
+          }
+        },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6",
+          "options": {
+            "thinking": {
+              "display": "summarized",
+              "type": "adaptive"
+            }
+          },
+          "variants": {
+            "high": {
+              "thinking": {
+                "budgetTokens": 16000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "low": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "max": {
+              "thinking": {
+                "budgetTokens": 128000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "medium": {
+              "thinking": {
+                "budgetTokens": 8000,
+                "display": "summarized",
+                "type": "adaptive"
+              }
+            },
+            "xhigh": {
+              "thinking": {
+                "budgetTokens": 64000,
+                "display": "summarized",
+                "type": "adaptive"
               }
             }
           }
         }
+      },
+      "name": "Anthropic",
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "apiKey": "{env:PACKYCODE_API_KEY}",
+        "baseURL": "https://www.packyapi.com/v1",
+        "setCacheKey": true
       }
     }
   }
