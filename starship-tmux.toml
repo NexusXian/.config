@@ -1,0 +1,21 @@
+format = "$directory$git_branch$git_status$cmd_duration"
+add_newline = false
+
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[ │ ](dimmed white)[$symbol$branch]($style)"
+
+[git_status]
+style = "bold yellow"
+format = "[$all_status$ahead_behind]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "bold yellow"
+format = "[ │ ](dimmed white)[ $duration]($style)"
