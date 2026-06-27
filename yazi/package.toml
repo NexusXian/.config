@@ -28,6 +28,21 @@ use = "KKV9/compress"
 rev = "e60e122"
 hash = "fbaf0adc8efc59555b748d36aab62d40"
 
+a[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "e73fd74"
+hash = "6ea5f37c7f219671ec504cb8311f889d"
+
+[[plugin.deps]]
+use = "AnirudhG07/nbpreview"
+rev = "b504594"
+hash = "b83919985400521dee78e1c352b5d9db"
+
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "0ac0320"
+hash = "f80172438b4b5c31e94d6c891f734445"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "ca61658"

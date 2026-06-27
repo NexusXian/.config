@@ -400,3 +400,24 @@ on   = [ "c", "a", "u" ]
 run  = "plugin compress -phl"
 desc = "Archive selected files (password+header+level)"
 
+
+# Copy yanked files to the system clipboard
+[[mgr.prepend_keymap]]
+on  = "Y"
+run = [ "yank", 'plugin clipboard -- --action=copy' ]
+
+# Paste files from the system clipboard into the current directory
+[[mgr.prepend_keymap]]
+on  = "<C-p>"
+run = [ 'plugin clipboard -- --action=paste' ]
+
+#for lazygit
+[[mgr.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
+
+[[mgr.prepend_keymap]]
+on   = "S"
+run  = 'shell "$SHELL" --block'
+desc = "Open shell here"
