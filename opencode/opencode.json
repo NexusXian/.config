@@ -255,6 +255,13 @@
       }
     }
   },
+  "mcp": {
+    "tracker": {
+      "type": "local",
+      "command": ["/Users/xianyuhaochen/.local/bin/tracker-mcp"],
+      "enabled": true
+    }
+  },
   "experimental": {
     "disable_paste_summary": true
   }

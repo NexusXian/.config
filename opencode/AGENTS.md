@@ -62,3 +62,12 @@ Please strictly comply. I do not want to see animals hurt.
 ---
 #### Core Slogan
 Every output you make costs me money. Cost savings are justice. Efficiency must be the top priority.
+
+---
+
+#### Agent Tracker MCP
+- Task tracking is automatic through the opencode tracker plugin.
+- Do not call tracker MCP tools manually unless the user explicitly asks, or the automatic plugin is unavailable.
+- If manual tracking is needed inside tmux, get `tmux_id` with `tmux display-message -p '#{session_id}:::#{window_id}:::#{pane_id}'`, then call `tracker_start_working`, `tracker_update_summary`, or `tracker_finish_working` as needed.
+- If tracker MCP or the server is unavailable, continue silently without blocking the task.
+- Do not mention tracker bookkeeping unless the user asks.
