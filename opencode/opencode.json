@@ -1,5 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "mode": {
+    "build": {
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    }
+  },
   "disabled_providers": [
     "zai",
     "z-ai",
@@ -74,7 +80,7 @@
           "options": {
             "thinking": {
               "display": "summarized",
-              "type": "adaptive"
+              "type": "enabled"
             }
           },
           "variants": {
@@ -82,7 +88,7 @@
               "thinking": {
                 "budgetTokens": 16000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "low": {
@@ -94,21 +100,21 @@
               "thinking": {
                 "budgetTokens": 128000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "medium": {
               "thinking": {
                 "budgetTokens": 8000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "xhigh": {
               "thinking": {
                 "budgetTokens": 64000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             }
           }
@@ -118,7 +124,7 @@
           "options": {
             "thinking": {
               "display": "summarized",
-              "type": "adaptive"
+              "type": "enabled"
             }
           },
           "variants": {
@@ -126,7 +132,7 @@
               "thinking": {
                 "budgetTokens": 16000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "low": {
@@ -138,21 +144,21 @@
               "thinking": {
                 "budgetTokens": 128000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "medium": {
               "thinking": {
                 "budgetTokens": 8000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "xhigh": {
               "thinking": {
                 "budgetTokens": 64000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             }
           }
@@ -162,7 +168,7 @@
           "options": {
             "thinking": {
               "display": "summarized",
-              "type": "adaptive"
+              "type": "enabled"
             }
           },
           "variants": {
@@ -170,7 +176,7 @@
               "thinking": {
                 "budgetTokens": 16000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "low": {
@@ -182,21 +188,21 @@
               "thinking": {
                 "budgetTokens": 128000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "medium": {
               "thinking": {
                 "budgetTokens": 8000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "xhigh": {
               "thinking": {
                 "budgetTokens": 64000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             }
           }
@@ -206,7 +212,7 @@
           "options": {
             "thinking": {
               "display": "summarized",
-              "type": "adaptive"
+              "type": "enabled"
             }
           },
           "variants": {
@@ -214,7 +220,7 @@
               "thinking": {
                 "budgetTokens": 16000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "low": {
@@ -226,21 +232,21 @@
               "thinking": {
                 "budgetTokens": 128000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "medium": {
               "thinking": {
                 "budgetTokens": 8000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             },
             "xhigh": {
               "thinking": {
                 "budgetTokens": 64000,
                 "display": "summarized",
-                "type": "adaptive"
+                "type": "enabled"
               }
             }
           }
