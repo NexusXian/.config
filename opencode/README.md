@@ -27,7 +27,7 @@
 | `commands/consult.md` + `consult.json` + `tools/consult.ts` | `/consult` 命令（GLM-5.2 二次审查） |
 | `plugin/tracker-auto.ts` | tmux 内自动任务追踪插件 |
 | `tui-plugins/tui.json` | TUI 快捷键 |
-| `tools/pinchtab-mcp.mjs` | pinchtab 浏览器控制 MCP server，9 个工具 |
+| `tools/pinchtab-mcp.mjs` | pinchtab 浏览器控制 MCP server，9 个工具；启动时自动拉起 pinchtab 服务（已运行则跳过），token 未设置时自动读 pinchtab 配置文件 |
 | `package.json` / `tsconfig.json` | 本地依赖：`@modelcontextprotocol/sdk`、`zod`、`@opencode-ai/plugin` |
 
 ## 步骤 1：安装基础依赖
@@ -85,7 +85,9 @@ export PACKYCODE_API_KEY="..." # provider: packycode
 
 ```bash
 export PINCHTAB_URL="http://127.0.0.1:9867"  # 默认值，可省略
-export PINCHTAB_TOKEN="..."                  # pinchtab 开了鉴权时才需要
+export PINCHTAB_TOKEN="..."                  # 不设则自动读 pinchtab 配置文件里的 server.token
+export PINCHTAB_AUTOSTART="0"                # 设为 0 禁用自动拉起（默认开启）
+export PINCHTAB_BIN="/path/to/pinchtab"      # pinchtab 不在 PATH 时指定
 ```
 
 ## 步骤 4：agent-tracker
@@ -150,6 +152,8 @@ ls "$XDG_RUNTIME_DIR/agent-tracker.sock"
 curl -fsSL https://pinchtab.com/install.sh | bash
 ```
 
+无需手动启动服务：opencode 启动时会拉起 `tools/pinchtab-mcp.mjs`，它检测到 `127.0.0.1:9867` 没有响应时会自动后台启动 pinchtab（优先 `pinchtab daemon start`，daemon 未安装则直接 `pinchtab server`）；已在运行则直接复用。设 `PINCHTAB_AUTOSTART=0` 可禁用。若想让 pinchtab 常驻（不依赖 opencode），也可以一次性执行 `pinchtab daemon install` 装成系统服务。
+
 验证 MCP server 本身可启动（无需 pinchtab 服务在跑）：
 
 ```bash
@@ -177,7 +181,8 @@ echo "$CC_API_KEY" | head -c 4   # 非空
 - tracker MCP 连不上：确认 `~/.local/bin/tracker-mcp` 存在且服务已启动（macOS: `brew services list`；Linux: `systemctl --user status agent-tracker`）、`$XDG_RUNTIME_DIR/agent-tracker.sock` 存在
 - Linux 上 `install_brew_service.sh` 报 "brew services command is unavailable"：预期行为，改用 systemd 分支的命令
 - Linux 上 SSH 登出后 tracker-server 退出：未执行 `loginctl enable-linger`
-- pinchtab 工具报 `fetch failed`：pinchtab 服务未运行（`127.0.0.1:9867`），启动 pinchtab 或忽略
+- pinchtab 工具报 `fetch failed`：自动拉起失败，通常是 pinchtab 未安装（检查 `command -v pinchtab`）或设了 `PINCHTAB_AUTOSTART=0`；手动 `pinchtab server` 排查
+- pinchtab 工具报 401/missing_token：`PINCHTAB_TOKEN` 与 pinchtab 配置（`~/.pinchtab/config.json` 的 `server.token`）不一致
 - 模型列表为空：检查 baseURL `https://slb-v1.api.fan/v1` 可达性及 key 有效性
 
 ## 使用速览

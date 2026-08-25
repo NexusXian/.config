@@ -1,9 +1,31 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
+import { spawn } from "node:child_process"
+import { readFileSync } from "node:fs"
+import { homedir } from "node:os"
+import { join } from "node:path"
 import { z } from "zod"
 
 const baseUrl = (process.env.PINCHTAB_URL || "http://127.0.0.1:9867").replace(/\/+$/, "")
-const token = process.env.PINCHTAB_TOKEN || ""
+const autostart = process.env.PINCHTAB_AUTOSTART !== "0"
+const pinchtabBin = process.env.PINCHTAB_BIN || "pinchtab"
+
+function tokenFromConfig() {
+  const candidates = [
+    process.env.PINCHTAB_CONFIG,
+    join(homedir(), ".config/pinchtab/config.json"),
+    join(homedir(), ".pinchtab/config.json"),
+  ].filter(Boolean)
+  for (const path of candidates) {
+    try {
+      const config = JSON.parse(readFileSync(path, "utf8"))
+      if (config?.server?.token) return config.server.token
+    } catch {}
+  }
+  return ""
+}
+
+const token = process.env.PINCHTAB_TOKEN || tokenFromConfig()
 
 const server = new McpServer({
   name: "pinchtab",
@@ -279,5 +301,43 @@ server.registerTool(
   },
 )
 
+async function isHealthy() {
+  try {
+    const headers = token ? { Authorization: `Bearer ${token}` } : {}
+    const response = await fetch(`${baseUrl}/health`, { headers, signal: AbortSignal.timeout(1500) })
+    return response.ok
+  } catch {
+    return false
+  }
+}
+
+async function waitForHealth(timeoutMs) {
+  const deadline = Date.now() + timeoutMs
+  while (Date.now() < deadline) {
+    if (await isHealthy()) return true
+    await new Promise((resolve) => setTimeout(resolve, 500))
+  }
+  return false
+}
+
+function spawnDetached(args) {
+  try {
+    const child = spawn(pinchtabBin, args, { detached: true, stdio: "ignore" })
+    child.unref()
+    return true
+  } catch {
+    return false
+  }
+}
+
+async function ensurePinchtabServer() {
+  if (await isHealthy()) return
+  if (!autostart) return
+
+  if (spawnDetached(["daemon", "start"]) && (await waitForHealth(5000))) return
+  if (spawnDetached(["server"]) && (await waitForHealth(10000))) return
+}
+
 const transport = new StdioServerTransport()
+await ensurePinchtabServer()
 await server.connect(transport)
