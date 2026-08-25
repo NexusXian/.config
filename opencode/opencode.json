@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "mode": {
     "build": {
       "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
@@ -69,7 +68,7 @@
       "npm": "@ai-sdk/anthropic",
       "options": {
         "apiKey": "{env:CC_API_KEY}",
-        "baseURL": "https://www.packyapi.com/v1",
+        "baseURL": "https://slb-v1.api.fan/v1",
         "setCacheKey": true
       }
     },
@@ -163,8 +162,8 @@
             }
           }
         },
-        "claude-opus-4-8": {
-          "name": "Claude Opus 4.8",
+        "claude-opus-5": {
+          "name": "Claude Opus 5",
           "options": {
             "thinking": {
               "display": "summarized",
@@ -207,8 +206,8 @@
             }
           }
         },
-        "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6",
+        "claude-sonnet-5": {
+          "name": "Claude Sonnet 5",
           "options": {
             "thinking": {
               "display": "summarized",
@@ -256,7 +255,7 @@
       "npm": "@ai-sdk/anthropic",
       "options": {
         "apiKey": "{env:PACKYCODE_API_KEY}",
-        "baseURL": "https://www.packyapi.com/v1",
+        "baseURL": "https://slb-v1.api.fan/v1",
         "setCacheKey": true
       }
     }
@@ -264,7 +263,15 @@
   "mcp": {
     "tracker": {
       "type": "local",
-      "command": ["/Users/xianyuhaochen/.local/bin/tracker-mcp"],
+      "command": ["/Users/nexus/.local/bin/tracker-mcp"],
+      "enabled": true
+    },
+    "pinchtab": {
+      "type": "local",
+      "command": [
+        "node",
+        "/Users/nexus/.config/opencode/tools/pinchtab-mcp.mjs"
+      ],
       "enabled": true
     }
   },

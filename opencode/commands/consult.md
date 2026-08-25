@@ -2,6 +2,9 @@
 description: Get a second opinion from another model
 ---
 
+
+you should not use this tool directly, unless user use the command maunally.
+
 The user wants a second opinion from another model.
 
 1. Review our conversation and identify ALL relevant context for the question below
