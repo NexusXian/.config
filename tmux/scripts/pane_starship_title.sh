@@ -33,8 +33,11 @@ run_starship() {
   local prompt_width cfg
   prompt_width="${1:-$width}"
   cfg="${STARSHIP_TMUX_CONFIG:-$HOME/.config/starship-tmux.toml}"
-  STARSHIP_LOG=error STARSHIP_CONFIG="$cfg" \
-    starship prompt --terminal-width "$prompt_width" | strip_wrappers | tr -d '\n'
+  export STARSHIP_LOG=error STARSHIP_CONFIG="$cfg"
+  {
+    starship module directory --terminal-width "$prompt_width"
+    starship module cmd_duration --terminal-width "$prompt_width"
+  } | strip_wrappers | tr -d '\n'
 }
 
 trim_to_width() {
@@ -69,10 +72,9 @@ opencode_active() {
 }
 
 fallback() {
-  # <cmd> — <last dir>
   local last_dir
   last_dir="${pane_path##*/}"
-  printf '%s — %s' "$pane_cmd" "$last_dir"
+  printf '%s' "${last_dir:-/}"
 }
 
 if command -v starship >/dev/null 2>&1; then
