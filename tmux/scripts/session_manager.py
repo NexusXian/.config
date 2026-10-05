@@ -23,14 +23,16 @@ def list_sessions() -> List[Dict[str, object]]:
     output = run_tmux([
         "list-sessions",
         "-F",
-        "#{session_id}\t#{session_name}\t#{session_created}"
+        "#{session_id}\t#{session_name}\t#{session_created}\t#{@agent_popup}"
     ], capture=True)
     if not output:
         return []
 
     sessions = []
     for line in output.splitlines():
-        session_id, name, created_str = line.split("\t")
+        session_id, name, created_str, popup = line.split("\t")
+        if name.startswith("__agent_popup_") or popup == "1":
+            continue
         created = int(created_str)
         match = re.match(r"^(\d+)-(.*)$", name)
         if match:
