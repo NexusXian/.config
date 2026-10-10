@@ -53,3 +53,21 @@ tmux display-message -p '#{session_id}:::#{window_id}:::#{pane_id}'
 * If tracker MCP or the server is unavailable, continue silently without blocking the task.
 * Do not mention tracker bookkeeping unless asked.
 
+
+
+### Error Handling
+
+* If the same approach fails three times, stop repeating it and reassess the root cause.
+* Do not suppress errors or introduce silent fallbacks to make failing code appear successful.
+
+### Verification
+
+* Run relevant existing tests, linters, or build checks when practical.
+* Do not create new tests unless requested.
+* Never claim code was tested or verified unless the corresponding commands actually succeeded.
+
+### Security
+
+* Never expose, log, or hardcode credentials, tokens, or secrets.
+* Do not execute destructive commands or irreversible migrations without explicit authorization.
+
