@@ -2,6 +2,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@opencode-ai/plugin": "1.17.8",
+    "@opencode/plugin": "2.0.26",
+    "solid-js": "^1.9.17",
     "zod": "^4.4.3"
   },
   "devDependencies": {

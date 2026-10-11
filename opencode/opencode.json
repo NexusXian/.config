@@ -1,9 +1,6 @@
 
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "@ex-machina/opencode-anthropic-auth"
-  ],
   "mode": {
     "build": {
       "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
@@ -120,4 +117,3 @@
     "disable_paste_summary": true
   }
 }
-
