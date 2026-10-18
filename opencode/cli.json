@@ -5,7 +5,10 @@
     "mode": "dark"
   },
   "diffs": {
-    "wrap": "word"
+    "wrap": "word",
+    "view": "auto",
+    "tree": true,
+    "single": false
   },
   "session": {
     "sidebar": "hide",
@@ -21,7 +24,7 @@
   "animations": true,
   "tabs": {
     "mode": "off",
-    "layout": "horizontal",
+    "layout": "vertical",
     "indicators": "status"
   },
   "debug": {
