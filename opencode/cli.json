@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "one-dark",
+    "mode": "dark"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": false,
+    "thinking": "hide",
+    "permissions": "autoaccept",
+    "grouping": "auto",
+    "image_preview": false
+  },
+  "prompt": {
+    "paste": "full"
+  },
+  "animations": true,
+  "tabs": {
+    "mode": "off",
+    "layout": "horizontal",
+    "indicators": "status"
+  },
+  "debug": {
+    "devtools": false
+  }
+}

@@ -1,48 +1,47 @@
-
 {
   "$schema": "https://opencode.ai/config.json",
-  "mode": {
+  "agents": {
     "build": {
-      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+      "mode": "primary",
+      "system": "You are Claude Code, Anthropic's official CLI for Claude."
     }
   },
-  "disabled_providers": [
-    "zai",
-    "z-ai",
-    "z.ai",
-    "zhipu",
-    "zhipu-ai",
-    "zhipuai",
-    "z-ai-coding-plan",
-    "z.ai-coding-plan",
-    "zai-coding-plan"
+  "policies": [
+    { "action": "provider.use", "resource": "zai", "effect": "deny" },
+    { "action": "provider.use", "resource": "z-ai", "effect": "deny" },
+    { "action": "provider.use", "resource": "z.ai", "effect": "deny" },
+    { "action": "provider.use", "resource": "zhipu", "effect": "deny" },
+    { "action": "provider.use", "resource": "zhipu-ai", "effect": "deny" },
+    { "action": "provider.use", "resource": "zhipuai", "effect": "deny" },
+    { "action": "provider.use", "resource": "z-ai-coding-plan", "effect": "deny" },
+    { "action": "provider.use", "resource": "z.ai-coding-plan", "effect": "deny" },
+    { "action": "provider.use", "resource": "zai-coding-plan", "effect": "deny" }
   ],
-  "provider": {
+  "providers": {
     "RCode_ClaudeCode": {
-      "npm": "@ai-sdk/anthropic",
+      "package": "aisdk:@ai-sdk/anthropic",
       "name": "Anthropic",
-      "options": {
+      "settings": {
         "baseURL": "https://right.codes/claude-aws/v1",
         "apiKey": "{env:RIGHT_CODE}"
       },
       "models": {
         "claude-haiku-4-5": {
-          "id": "claude-haiku-4-5",
+          "modelID": "claude-haiku-4-5",
           "name": "Claude Haiku 4.5",
-          "attachment": true,
-          "reasoning": true,
-          "tool_call": true,
-          "temperature": true,
-          "release_date": "2025-10-15",
-          "modalities": {
+          "releaseDate": "2025-10-15",
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           },
           "cost": {
             "input": 1,
             "output": 5,
-            "cache_read": 0.1,
-            "cache_write": 1.25
+            "cache": {
+              "read": 0.1,
+              "write": 1.25
+            }
           },
           "limit": {
             "context": 200000,
@@ -50,21 +49,20 @@
           }
         },
         "claude-sonnet-5": {
-          "id": "claude-sonnet-5",
+          "modelID": "claude-sonnet-5",
           "name": "Claude Sonnet 5",
-          "attachment": true,
-          "reasoning": true,
-          "tool_call": true,
-          "temperature": true,
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image"],
             "output": ["text"]
           },
           "cost": {
             "input": 3,
             "output": 15,
-            "cache_read": 0.3,
-            "cache_write": 3.75
+            "cache": {
+              "read": 0.3,
+              "write": 3.75
+            }
           },
           "limit": {
             "context": 1000000,
@@ -72,21 +70,20 @@
           }
         },
         "claude-opus-5-5": {
-          "id": "claude-opus-5-5",
+          "modelID": "claude-opus-5-5",
           "name": "Claude Opus 5.5",
-          "attachment": true,
-          "reasoning": true,
-          "tool_call": true,
-          "temperature": true,
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image"],
             "output": ["text"]
           },
           "cost": {
             "input": 5,
             "output": 25,
-            "cache_read": 0.5,
-            "cache_write": 6.25
+            "cache": {
+              "read": 0.5,
+              "write": 6.25
+            }
           },
           "limit": {
             "context": 1000000,
@@ -97,23 +94,20 @@
     }
   },
   "mcp": {
-    "tracker": {
-      "type": "local",
-      "command": [
-        "/Users/nexus/.local/bin/tracker-mcp"
-      ],
-      "enabled": true
-    },
-    "pinchtab": {
-      "type": "local",
-      "command": [
-        "node",
-        "/Users/nexus/.config/opencode/tools/pinchtab-mcp.mjs"
-      ],
-      "enabled": true
+    "servers": {
+      "tracker": {
+        "type": "local",
+        "command": ["/Users/nexus/.local/bin/tracker-mcp"],
+        "disabled": false
+      },
+      "pinchtab": {
+        "type": "local",
+        "command": [
+          "node",
+          "/Users/nexus/.config/opencode/tools/pinchtab-mcp.mjs"
+        ],
+        "disabled": false
+      }
     }
-  },
-  "experimental": {
-    "disable_paste_summary": true
   }
 }
