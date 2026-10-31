@@ -22,7 +22,7 @@
       "package": "aisdk:@ai-sdk/anthropic",
       "name": "Anthropic",
       "settings": {
-        "baseURL": "https://right.codes/claude-aws/v1",
+        "baseURL": "https://api.site/claude-aws/v1",
         "apiKey": "{env:RIGHT_CODE}"
       },
       "models": {
